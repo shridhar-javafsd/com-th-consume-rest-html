@@ -10,16 +10,17 @@ const empDataToBeAdded = {
 };
 
 const getEmpById = (empId) => {
-    fetch(`${restApi}/getempbyid/${empId}`)
+    fetch(`${restApi}/getempbyid/${empId}`, { method: 'GET' })
         .then(data => data.json())
-        .then((json) => {
-            response = JSON.stringify(json);
-            console.log(response);
-            document.getElementById("empData").innerHTML = response;
+        .then((response) => {
+            document.getElementById("empData").innerHTML = JSON.stringify(response);
             document.getElementById("eid").value = '';
+            console.log(JSON.stringify(response));
         })
         .catch((error) => {
-            alert(error);
+            document.getElementById("eid").value = '';
+            document.getElementById("empData").innerHTML = 'Something is wrong!';
+            console.log(JSON.stringify(error));
         });
 }
 
@@ -31,8 +32,8 @@ const getAllEmps = () => {
             console.log(response);
             document.getElementById("empList").innerHTML = response;
         })
-        .catch((error) => {
-            alert(error);
+        .catch(() => {
+            document.getElementById("empList").innerHTML = 'Something is wrong!';
         });
 }
 
@@ -59,8 +60,11 @@ const addEmp = () => {
             document.getElementById("salary").value = '';
             document.getElementById("departmentId").value = '';
         })
-        .catch((error) => {
-            alert(error);
+        .catch(() => {
+            document.getElementById("empAdded").innerHTML = 'Something is wrong!';
+            document.getElementById("firstName").value = '';
+            document.getElementById("salary").value = '';
+            document.getElementById("departmentId").value = '';
         });
 }
 
