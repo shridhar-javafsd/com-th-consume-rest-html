@@ -11,16 +11,19 @@ const empDataToBeAdded = {
 
 const getEmpById = (empId) => {
     fetch(`${restApi}/getempbyid/${empId}`, { method: 'GET' })
-        .then(data => data.json())
+        .then(data => {
+            return data.json();
+        })
         .then((response) => {
             document.getElementById("empData").innerHTML = JSON.stringify(response);
             document.getElementById("eid").value = '';
             console.log(JSON.stringify(response));
+
         })
         .catch((error) => {
             document.getElementById("eid").value = '';
             document.getElementById("empData").innerHTML = 'Something is wrong!';
-            console.log(JSON.stringify(error));
+            console.log(error);
         });
 }
 
