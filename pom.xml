@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com-th-consume-rest-html</groupId>
+  <artifactId>com-th-consume-rest-html</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+ 
+ <build>
+     <pluginManagement>
+        <plugins>
+	  <plugin>
+  	     <artifactId>maven-war-plugin</artifactId>
+		<configuration>
+		   <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+	        </configuration>
+	 </plugin>
+       </plugins>
+    </pluginManagement> 
+ </build>
+
+</project> 
