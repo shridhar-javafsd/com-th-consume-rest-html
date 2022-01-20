@@ -1,15 +1,8 @@
-
-const restApi = `http://localhost:8082`;
-
-const empDataToBeAdded = {
-    firstName: 'Vaman',
-    salary: 98765,
-    department: {
-        departmentId: 30
-    }
-};
+ 
+const restApi = `http://localhost:8082/emp`;
 
 const getEmpById = (empId) => {
+    console.log(`getEmpById`);
     fetch(`${restApi}/getempbyid/${empId}`, { method: 'GET' })
         .then(data => {
             return data.json();
@@ -28,6 +21,7 @@ const getEmpById = (empId) => {
 }
 
 const getAllEmps = () => {
+    console.log(`getAllEmps`);
     fetch(`${restApi}/emplist`)
         .then(data => data.json())
         .then((json) => {
@@ -41,6 +35,7 @@ const getAllEmps = () => {
 }
 
 const addEmp = () => {
+    console.log(`addEmp`);
     fetch(`${restApi}/addemp`, {
         body: JSON.stringify({
             firstName: document.getElementById("firstName").value,
